@@ -1,7 +1,7 @@
 # junge-freiheit-scraper
 Python Scraper for the archive of German weekly Junge Freiheit
 
-The file 01_scraper.py contains the scraper. As it is now, the scraper stores all articles of a given volume that are accessible via a URL and records data for three variables: date, article title, article URL and article text. The archive of Junge Freiheit is freely accessible to anyone and contains all volumes since 1997. 
+The file 01_scraper.py contains the scraper. As it is now, the scraper stores all articles of a given volume that are accessible via a URL and records data for three variables: date, article title, article URL and article text. The archive of Junge Freiheit is freely accessible and contains all volumes since 1997.  
 
 The scraper utilizes the Selenium WebDriver package to scrape webpages via a browser. To scrape I used Firefox browser (v.84, 64-bit) which requires downloading the geckodriver to work with Selenium. Download geckodriver from https://github.com/mozilla/geckodriver/releases, save the geckodriver.exe file in a local file directory and enter the path in the scraper.py file under '# test geckodriver and selenium'. 
 
