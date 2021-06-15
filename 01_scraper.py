@@ -10,7 +10,7 @@ options = webdriver.FirefoxOptions()
 options.add_argument('-headless')
 
 # test geckodriver and selenium
-drivertest = webdriver.Firefox(executable_path=r'C:\Users\leoba\PycharmProjects\JFscraper\geckodriver.exe')
+drivertest = webdriver.Firefox(executable_path=r'path\geckodriver.exe')
 drivertest.get("https://goabase.net")
 
 # download website
@@ -47,7 +47,7 @@ len(new_url_list)
 data = []
 for i in range(0, 51):
     url1 = new_url_list[i]
-    driver1 = webdriver.Firefox(executable_path=r'C:\Users\leoba\PycharmProjects\JFscraper\geckodriver.exe',options=options)
+    driver1 = webdriver.Firefox(executable_path=r'path\geckodriver.exe',options=options)
     driver1.get(url1)
     sleep(randint(1, 2))
     soup1 = BeautifulSoup(driver1.page_source, 'html.parser')
@@ -88,7 +88,7 @@ for i in range(0, 3010):
     if response.status_code != 200:
         continue
 
-    driver2 = webdriver.Firefox(executable_path=r'C:\Users\leoba\PycharmProjects\JFscraper\geckodriver.exe',options=options)
+    driver2 = webdriver.Firefox(executable_path=r'path\geckodriver.exe',options=options)
     driver2.get(url2)
     sleep(randint(1, 2))
     soup2 = BeautifulSoup(driver2.page_source, 'html.parser')
