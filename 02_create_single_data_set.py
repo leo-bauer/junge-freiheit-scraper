@@ -3,7 +3,7 @@ import glob
 from datetime import datetime
 
 # load csvs
-path = r'C:\Users\leoba\PycharmProjects\JFscraper\data'
+path = r'path\to\data'
 all_files = glob.glob(path + "/*.csv")
 
 # create dfs and concat
@@ -39,4 +39,4 @@ frame = frame[['date', 'title', 'url', 'text']]
 frame = frame.sort_values(by='date')
 
 # store in csv
-frame.to_csv('C:\\Users\\leoba\\PycharmProjects\\JFscraper\\data\\jf_full_raw.csv')
+frame.to_csv('jf_full_raw.csv')
