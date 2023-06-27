@@ -43,11 +43,12 @@ len(url_list)
 new_url_list = ['https://jf-archiv.de/' + s for s in url_list]
 print(new_url_list)
 len(new_url_list)
+# initialize webdriver
+driver1 = webdriver.Firefox(executable_path=r'path\geckodriver.exe',options=options)
 # scrape href attributes from all issues of that year
 data = []
 for i in range(0, 51):
     url1 = new_url_list[i]
-    driver1 = webdriver.Firefox(executable_path=r'path\geckodriver.exe',options=options)
     driver1.get(url1)
     sleep(randint(1, 2))
     soup1 = BeautifulSoup(driver1.page_source, 'html.parser')
@@ -55,8 +56,6 @@ for i in range(0, 51):
 
     for attribute in article_urls_raw:
         data.append(attribute)
-
-    driver1.close()
 
 print(data)
 len(data)
@@ -88,8 +87,7 @@ for i in range(0, 3010):
     if response.status_code != 200:
         continue
 
-    driver2 = webdriver.Firefox(executable_path=r'path\geckodriver.exe',options=options)
-    driver2.get(url2)
+    driver1.get(url2)
     sleep(randint(1, 2))
     soup2 = BeautifulSoup(driver2.page_source, 'html.parser')
 
@@ -108,8 +106,6 @@ for i in range(0, 3010):
     atext = soup2.find_all('p')
     btext = [tag.get_text().strip() for tag in atext]
     text.append(btext)
-
-    driver2.close()
 
 # create dataframe
 yeardf = pd.DataFrame({
