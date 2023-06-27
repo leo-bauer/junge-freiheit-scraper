@@ -12,6 +12,8 @@ options.add_argument('-headless')
 # test geckodriver and selenium
 drivertest = webdriver.Firefox(executable_path=r'path\geckodriver.exe')
 drivertest.get("https://goabase.net")
+sleep(3)
+drivertest.close()
 
 # download website
 page = requests.get("https://jf-archiv.de/archiv20.htm")
@@ -89,7 +91,7 @@ for i in range(0, 3010):
 
     driver1.get(url2)
     sleep(randint(1, 2))
-    soup2 = BeautifulSoup(driver2.page_source, 'html.parser')
+    soup2 = BeautifulSoup(driver1.page_source, 'html.parser')
 
     adate = soup2.find('title')
     bdate = adate.get_text()
@@ -106,6 +108,9 @@ for i in range(0, 3010):
     atext = soup2.find_all('p')
     btext = [tag.get_text().strip() for tag in atext]
     text.append(btext)
+
+# close webdriver
+driver1.close()
 
 # create dataframe
 yeardf = pd.DataFrame({
